@@ -1,0 +1,67 @@
+header{
+    background-image: url(https://i.imgur.com/RurqKDM.jpg);
+    text-align: center;
+    background-size: cover;
+    color: white;
+    padding:80px;
+    font-size: 3dvi;
+}
+button{
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none
+    border-radius: 5px;
+    cursor: pointer;
+}
+.one{
+    display: flex;
+    text-align: center;
+    border: 2px;
+}
+.fine{
+    margin: 30px;
+    background-color: rgb(32, 6, 6);
+    color: rgb(247, 247, 247);
+    padding: 30px;
+}
+footer{
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.content{
+    background-color: coral;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+body{
+    background-color: rgb(182, 187, 192);
+}
+.content{
+    text-align: center;
+    font-size: large;
+    list-style-position: inside;
+}
+video{
+    height: 600px;
+    width: 80%;
+    padding-left:  80px;
+    align-items: center;
+}
+footer{
+    background-color: #333;
+    color: white;
+    font-style: inherit;
+    margin-top: 50px;
+    border: 0px;
+}
+.chat{
+    position: sticky;
+    height: 50px;
+    width: 50px;
+    border-color: crimson;
+    border-style: solid;
+    border-width: 2px;
+}
