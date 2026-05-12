@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    img {
+      width: 300px;
+      transition: 0.5s;
+    }
+
+    .small {
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+
+  <img id="myImage" src="https://via.placeholder.com/300">
+
+  <br><br>
+
+  <button onclick="shrinkImage()">Shrink Image</button>
+
+  <script>
+    function shrinkImage() {
+      document.getElementById("myImage").classList.toggle("small");
+    }
+  </script>
+
+</body>
+</html>
