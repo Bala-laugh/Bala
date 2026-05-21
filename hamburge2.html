@@ -1,0 +1,40 @@
+flex-direction: column;
+max-height: 0;
+overflow: hidden;
+transition: 0.5s ease-in-out;
+}
+.menu .item {
+width: 100%;
+padding: 15px;
+border-radius: 0;
+border-top: 0.5mm solid rgb(52, 53, 71);
+}
+#menu:checked ~ .items {
+max-height: 500px;
+}
+#menu:checked ~ .logo label::before {
+content: "close";
+}
+}
+</style>
+</head>
+<body>
+<div class="center">
+<div class="menu">
+<input type="checkbox" name="" id="menu" />
+<div class="logo">
+LOGO
+<label for="menu"></label>
+</div>
+
+<div class="items">
+<a href="" class="item">Home</a>
+<a href="" class="item">About</a>
+<a href="" class="item">Features</a>
+<a href="" class="item">Profile</a>
+<a href="" class="item">Logout</a>
+</div>
+</div>
+</div>
+</body>
+</html>
