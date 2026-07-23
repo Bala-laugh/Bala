@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew Haven</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background-color: #000;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .hero {
+      background: url('https://png.pngtree.com/background/20230519/original/pngtree-an-old-coffee-shop-with-very-dark-walls-picture-image_2652909.jpg') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3em;
+      color: #d4af37;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      color: #d4af37;
+    }
+    .products {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 50px 20px;
+      background-color: #1a1a1a;
+    }
+    .product {
+      width: 300px;
+      text-align: center;
+      margin: 20px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #222;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+    .product h3 {
+      color: #d4af37;
+    }
+    .order-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #d4af37;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .order-btn:hover {
+      background-color: #fff;
+      color: #d4af37;
+    }
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Locations</a>
+      <a href="#">Contact</a>
+      <a href="#">Sign In</a>
+      <a href="#">Order Online</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Brew Haven</h1>
+    <p>Each batch is carefully roasted to highlight the unique characteristics of the beans.</p>
+  </section>
+
+  <section class="products">
+    <div class="product">
+      <img src="D:\html and css\panel_1.png" height="250px" width="250px">
+      <h3>Colombian Supremo</h3>
+      <p>Rich and balanced flavor with a smooth finish.</p>
+      <a href="#" class="order-btn">Order Now</a>
+    </div>
+    <div class="product">
+      <img src="D:\html and css\panel_2.png" height="250px" width="250px">
+      <h3>Dark Roast Espresso</h3>
+      <p>Bold, intense, and full-bodied for espresso lovers.</p>
+      <a href="#" class="order-btn">Order Now</a>
+    </div>
+    <div class="product">
+      <img src="D:\html and css\panel_3.png" height="250px" width="250px">
+      <h3>Ethiopian Yirgacheffe</h3>
+      <p>Floral aroma with bright citrus notes.</p>
+      <a href="#" class="order-btn">Order Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Brew Haven | Crafted with Passion</p>
+  </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew Haven</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background-color: #000;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .hero {
+      background: url('https://png.pngtree.com/background/20230519/original/pngtree-an-old-coffee-shop-with-very-dark-walls-picture-image_2652909.jpg') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3em;
+      color: #d4af37;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      color: #d4af37;
+    }
+    .products {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 50px 20px;
+      background-color: #1a1a1a;
+    }
+    .product {
+      width: 300px;
+      text-align: center;
+      margin: 20px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #222;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+    .product h3 {
+      color: #d4af37;
+    }
+    .order-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #d4af37;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .order-btn:hover {
+      background-color: #fff;
+      color: #d4af37;
+    }
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Locations</a>
+      <a href="#">Contact</a>
+      <a href="#">Sign In</a>
+      <a href="#">Order Online</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Brew Haven</h1>
+    <p>Each batch is carefully roasted to highlight the unique characteristics of the beans.</p>
+  </section>
+
+  <section class="products">
+    <div class="product">
+      <img src="D:\html and css\panel_1.png" height="250px" width="250px">
+      <h3>Colombian Supremo</h3>
+      <p>Rich and balanced flavor with a smooth finish.</p>
+      <a href="#" class="order-btn">Order Now</a>
+    </div>
+    <div class="product">
+      <img src="D:\html and css\panel_2.png" height="250px" width="250px">
+      <h3>Dark Roast Espresso</h3>
+      <p>Bold, intense, and full-bodied for espresso lovers.</p>
+      <a href="#" class="order-btn">Order Now</a>
+    </div>
+    <div class="product">
+      <img src="D:\html and css\panel_3.png" height="250px" width="250px">
+      <h3>Ethiopian Yirgacheffe</h3>
+      <p>Floral aroma with bright citrus notes.</p>
+      <a href="#" class="order-btn">Order Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Brew Haven | Crafted with Passion</p>
+  </footer>
+</body>
+</html>
