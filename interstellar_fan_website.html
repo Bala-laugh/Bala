@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interstellar | Fan Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            light: '#F5DEB3',
+                            dark: '#050505',
+                            gray: '#1A1A1A'
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base and Typography */
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent body scroll, handle in container */
+        }
+        
+        h1, h2, h3, h4, h5, .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Scroll Snapping */
+        .snap-container {
+            height: 100dvh;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .snap-section {
+            min-height: 100dvh;
+            width: 100%;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        /* Reveal Animations (Intersection Observer) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+
+        /* Sound Visualizer Animation */
+        .sound-bar {
+            width: 4px;
+            background-color: #D4AF37;
+            border-radius: 2px;
+            animation: sound-pulse 1.2s infinite alternate ease-in-out;
+            transform-origin: bottom;
+        }
+
+        @keyframes sound-pulse {
+            0% { transform: scaleY(0.1); opacity: 0.5; }
+            100% { transform: scaleY(1); opacity: 1; }
+        }
+
+        /* Hide scrollbar for a cleaner cinematic look */
+        .snap-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .snap-container::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        .snap-container::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+
+        /* Custom Gradients */
+        .bg-radial-gradient {
+            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 80%);
+        }
+    </style>
+</head>
+<body>
+
+    <main class="snap-container" id="main-scroll-container">
+
+        <!-- 1. Landing Page -->
+        <section class="snap-section !p-0" style="background-image: url('landing page bg.jpg'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-black/50 bg-gradient-to-b from-transparent to-[#050505]"></div>
+            <div class="z-10 text-center px-4 w-full reveal">
+                <h1 class="text-5xl md:text-8xl lg:text-9xl font-cinzel font-bold text-white tracking-[0.2em] md:tracking-[0.3em] uppercase drop-shadow-2xl mb-6">
+                    Interstellar
+                </h1>
+                <p class="text-brand-gold text-sm md:text-xl lg:text-2xl font-light tracking-[0.2em] md:tracking-[0.4em] uppercase max-w-4xl mx-auto drop-shadow-md">
+                    Mankind was born on Earth.<br class="hidden md:block"> It was never meant to die here.
+                </p>
+                <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center opacity-70">
+                    <span class="text-xs tracking-widest uppercase mb-2">Scroll</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Page -->
+        <section class="snap-section bg-radial-gradient px-6 md:px-12 lg:px-24">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                <div class="reveal">
+                    <h2 class="text-3xl md:text-5xl lg:text-6xl font-cinzel text-brand-gold leading-tight mb-8">
+                        Beyond the stars,<br>our future begins.
+                    </h2>
+                    <div class="w-24 h-[1px] bg-brand-gold/50"></div>
+                </div>
+                <div class="space-y-8">
+                    <div class="reveal delay-100">
+                        <h3 class="text-xl font-cinzel text-white mb-3 tracking-widest uppercase">The Narration</h3>
+                        <p class="text-gray-400 font-light leading-relaxed text-sm md:text-base">
+                            As our time on Earth comes to an end, a team of explorers undertakes the most important mission in human history: traveling beyond this galaxy to discover whether mankind has a future among the stars. Bound by science and driven by love, they must sacrifice everything they know for a chance at survival.
+                        </p>
+                    </div>
+                    <div class="reveal delay-200">
+                        <h3 class="text-xl font-cinzel text-white mb-3 tracking-widest uppercase">The Mission</h3>
+                        <p class="text-gray-400 font-light leading-relaxed text-sm md:text-base">
+                            Project Endurance. Navigating through a newly discovered wormhole near Saturn, the crew seeks three potentially habitable worlds orbiting a supermassive black hole. Time is the ultimate enemy, where hours cost years, and every decision ripples across dimensions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. The Science of Gargantua -->
+        <section class="snap-section bg-[#080808] relative px-6 md:px-12 lg:px-24 overflow-hidden">
+            <!-- Decorative abstract rings -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-white/5 pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-brand-gold/10 pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto w-full z-10 flex flex-col items-center">
+                <h2 class="text-3xl md:text-5xl font-cinzel text-center text-white tracking-[0.2em] uppercase mb-16 reveal">The Science of Gargantua</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+                    <!-- Card 1 -->
+                    <div class="bg-brand-gray/40 border border-white/10 p-8 rounded-xl backdrop-blur-sm reveal delay-100 hover:border-brand-gold/50 transition-colors duration-500">
+                        <div class="text-brand-gold text-4xl font-cinzel mb-4">01</div>
+                        <h3 class="text-xl font-cinzel text-white mb-4 tracking-wider">Time Dilation</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">
+                            Due to Gargantua's massive gravitational pull, space-time is severely warped. On Miller's planet, just one hour equates to seven years on Earth, turning time into a scarce and agonizing resource.
+                        </p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-brand-gray/40 border border-white/10 p-8 rounded-xl backdrop-blur-sm reveal delay-200 hover:border-brand-gold/50 transition-colors duration-500">
+                        <div class="text-brand-gold text-4xl font-cinzel mb-4">02</div>
+                        <h3 class="text-xl font-cinzel text-white mb-4 tracking-wider">The Tesseract</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">
+                            A four-dimensional hypercube construct inside the singularity. It translates the fifth dimension (where time is physical space) into three dimensions, allowing interaction across different points in time.
+                        </p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-brand-gray/40 border border-white/10 p-8 rounded-xl backdrop-blur-sm reveal delay-300 hover:border-brand-gold/50 transition-colors duration-500">
+                        <div class="text-brand-gold text-4xl font-cinzel mb-4">03</div>
+                        <h3 class="text-xl font-cinzel text-white mb-4 tracking-wider">Visualizing the Black Hole</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">
+                            Built upon equations by theoretical physicist Kip Thorne, the film's rendering provided unprecedented scientific accuracy, showing how a black hole's gravity lenses its glowing accretion disk.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Cast Page -->
+        <section class="snap-section bg-gradient-to-b from-[#080808] to-[#020202] px-6 md:px-12 lg:px-24">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="text-center mb-12 reveal">
+                    <p class="text-brand-gold tracking-[0.3em] text-xs uppercase mb-2 font-light">The Explorers</p>
+                    <h2 class="text-3xl md:text-5xl font-cinzel text-white tracking-widest uppercase">The Cast</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative reveal delay-200">
+                    
+                    <!-- Cast Item 1 -->
+                    <div class="relative group h-[400px] rounded-xl overflow-hidden cursor-pointer">
+                        <img src="140312162546-matthew-mcconaughey-march-2014.jpg" alt="Matthew McConaughey" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
+                        
+                        <!-- Hover Overlay / Popup (Responsive) -->
+                        <div class="absolute bottom-0 left-0 w-full p-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20 bg-black/80 backdrop-blur-md lg:static lg:bg-transparent lg:backdrop-blur-none lg:opacity-0 lg:translate-y-0 lg:absolute lg:top-0 lg:left-full lg:w-72 lg:h-full lg:-ml-2 lg:p-6 lg:border lg:border-brand-gold/30 lg:bg-[#0a0a0a] lg:shadow-2xl lg:transform lg:-translate-x-4 lg:group-hover:translate-x-0 lg:flex lg:flex-col lg:justify-center hidden lg:group-hover:flex">
+                            <h4 class="text-brand-gold font-cinzel text-xl lg:text-2xl mb-1">Matthew McConaughey</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Joseph Cooper</p>
+                            <p class="text-gray-400 text-xs leading-relaxed border-t border-white/20 pt-3">The Pilot. A widowed former NASA engineer turned farmer, forced to choose between his family and the salvation of mankind.</p>
+                        </div>
+                        <!-- Mobile/Tablet persistent basic info -->
+                        <div class="absolute bottom-6 left-6 z-10 lg:group-hover:opacity-0 transition-opacity duration-300">
+                            <h4 class="text-brand-gold font-cinzel text-xl shadow-black drop-shadow-md">Matthew McConaughey</h4>
+                        </div>
+                        <!-- Mobile/Tablet purely overlay hover -->
+                        <div class="lg:hidden absolute inset-0 bg-black/90 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">Matthew McConaughey</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Joseph Cooper</p>
+                            <p class="text-gray-300 text-sm leading-relaxed border-t border-white/20 pt-3">The Pilot. A widowed former NASA engineer turned farmer, forced to choose between his family and the salvation of mankind.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cast Item 2 -->
+                    <div class="relative group h-[400px] rounded-xl overflow-hidden cursor-pointer lg:z-40">
+                        <img src="anne_hathaway_-_hfpa.jpg" alt="Anne Hathaway" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-6 left-6 z-10 lg:group-hover:opacity-0 transition-opacity">
+                            <h4 class="text-brand-gold font-cinzel text-xl drop-shadow-md">Anne Hathaway</h4>
+                        </div>
+                        <div class="lg:hidden absolute inset-0 bg-black/90 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">Anne Hathaway</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Dr. Amelia Brand</p>
+                            <p class="text-gray-300 text-sm leading-relaxed border-t border-white/20 pt-3">The Chief Scientist. Brilliant but emotionally driven, believing love is an artifact of a higher dimension.</p>
+                        </div>
+                        <!-- Desktop Side Popup -->
+                        <div class="hidden lg:group-hover:flex absolute top-0 left-full w-72 h-full -ml-2 p-6 border border-brand-gold/30 bg-[#0a0a0a] shadow-2xl opacity-0 transform -translate-x-4 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 z-50 flex-col justify-center">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">Anne Hathaway</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Dr. Amelia Brand</p>
+                            <p class="text-gray-400 text-xs leading-relaxed border-t border-white/20 pt-3">The Chief Scientist. Brilliant but emotionally driven, believing love is an artifact of a higher dimension that transcends spacetime.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cast Item 3 (Popup goes left on desktop to avoid screen overflow) -->
+                    <div class="relative group h-[400px] rounded-xl overflow-hidden cursor-pointer lg:z-30">
+                        <img src="162582844.jpg" alt="Jessica Chastain" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-6 left-6 z-10 lg:group-hover:opacity-0 transition-opacity">
+                            <h4 class="text-brand-gold font-cinzel text-xl drop-shadow-md">Jessica Chastain</h4>
+                        </div>
+                        <div class="lg:hidden absolute inset-0 bg-black/90 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">Jessica Chastain</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Older Murph</p>
+                            <p class="text-gray-300 text-sm leading-relaxed border-t border-white/20 pt-3">The Prodigy. Working endlessly on Earth to solve gravity equations to save humanity.</p>
+                        </div>
+                        <!-- Desktop Side Popup (Left side) -->
+                        <div class="hidden lg:group-hover:flex absolute top-0 right-full w-72 h-full -mr-2 p-6 border border-brand-gold/30 bg-[#0a0a0a] shadow-2xl opacity-0 transform translate-x-4 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 z-50 flex-col justify-center">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">Jessica Chastain</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Older Murph</p>
+                            <p class="text-gray-400 text-xs leading-relaxed border-t border-white/20 pt-3">The Prodigy. Embittered by her father's abandonment, she becomes a physicist dedicated to solving the ultimate gravity equation to save Earth.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cast Item 4 -->
+                    <div class="relative group h-[400px] rounded-xl overflow-hidden cursor-pointer lg:z-20">
+                        <img src="MACKENZIE FOY.jpg" alt="Mackenzie Foy" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" style="object-position: top;">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-6 left-6 z-10 lg:group-hover:opacity-0 transition-opacity">
+                            <h4 class="text-brand-gold font-cinzel text-xl drop-shadow-md">Mackenzie Foy</h4>
+                        </div>
+                        <div class="lg:hidden absolute inset-0 bg-black/90 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">Mackenzie Foy</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Young Murph</p>
+                            <p class="text-gray-300 text-sm leading-relaxed border-t border-white/20 pt-3">The Anchor. Her bond with Cooper is the emotional core of the film and the key to the Tesseract.</p>
+                        </div>
+                        <!-- Desktop Popup (Right side) -->
+                        <div class="hidden lg:group-hover:flex absolute top-0 left-full w-72 h-full -ml-2 p-6 border border-brand-gold/30 bg-[#0a0a0a] shadow-2xl opacity-0 transform -translate-x-4 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 z-50 flex-col justify-center">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">Mackenzie Foy</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Young Murph</p>
+                            <p class="text-gray-400 text-xs leading-relaxed border-t border-white/20 pt-3">The Anchor. Her profound bond with her father serves as the emotional core of the film, and ultimately, the key to unlocking the Tesseract's mysteries.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cast Item 5 -->
+                    <div class="relative group h-[400px] rounded-xl overflow-hidden cursor-pointer lg:z-10">
+                        <img src="DAvid gyasi.jpg" alt="David Gyasi" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-6 left-6 z-10 lg:group-hover:opacity-0 transition-opacity">
+                            <h4 class="text-brand-gold font-cinzel text-xl drop-shadow-md">David Gyasi</h4>
+                        </div>
+                        <div class="lg:hidden absolute inset-0 bg-black/90 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">David Gyasi</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Romilly</p>
+                            <p class="text-gray-300 text-sm leading-relaxed border-t border-white/20 pt-3">The Physicist. Dedicated and patient, enduring years of isolation to study the black hole.</p>
+                        </div>
+                        <!-- Desktop Popup (Right side) -->
+                        <div class="hidden lg:group-hover:flex absolute top-0 left-full w-72 h-full -ml-2 p-6 border border-brand-gold/30 bg-[#0a0a0a] shadow-2xl opacity-0 transform -translate-x-4 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 z-50 flex-col justify-center">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">David Gyasi</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Romilly</p>
+                            <p class="text-gray-400 text-xs leading-relaxed border-t border-white/20 pt-3">The Physicist. Highly intelligent and patient, he endures decades of isolation aboard the Endurance to study Gargantua's quantum data.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cast Item 6 (Popup goes left) -->
+                    <div class="relative group h-[400px] rounded-xl overflow-hidden cursor-pointer z-0">
+                        <img src="MATT DAMON .JPG" alt="Matt Damon" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-6 left-6 z-10 lg:group-hover:opacity-0 transition-opacity">
+                            <h4 class="text-brand-gold font-cinzel text-xl drop-shadow-md">Matt Damon</h4>
+                        </div>
+                        <div class="lg:hidden absolute inset-0 bg-black/90 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">Matt Damon</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Dr. Mann</p>
+                            <p class="text-gray-300 text-sm leading-relaxed border-t border-white/20 pt-3">The Survivor. Driven to madness by isolation, highlighting humanity's darkest survival instincts.</p>
+                        </div>
+                        <!-- Desktop Side Popup (Left side) -->
+                        <div class="hidden lg:group-hover:flex absolute top-0 right-full w-72 h-full -mr-2 p-6 border border-brand-gold/30 bg-[#0a0a0a] shadow-2xl opacity-0 transform translate-x-4 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 z-50 flex-col justify-center">
+                            <h4 class="text-brand-gold font-cinzel text-2xl mb-1">Matt Damon</h4>
+                            <p class="text-white text-sm font-medium mb-3 uppercase tracking-wider">Dr. Mann</p>
+                            <p class="text-gray-400 text-xs leading-relaxed border-t border-white/20 pt-3">The Survivor. Once deemed the best of them, profound isolation fractures his morality, showcasing the darkest instincts of self-preservation at all costs.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Soundtrack -->
+        <section class="snap-section bg-[#020202] px-4 md:px-12 lg:px-24">
+            <div class="max-w-6xl w-full mx-auto bg-[#0a0a0a] rounded-3xl border border-white/5 overflow-hidden shadow-2xl flex flex-col lg:flex-row reveal">
+                
+                <!-- Left: Tracklist Info & Image -->
+                <div class="w-full lg:w-5/12 bg-brand-gray/50 p-8 md:p-12 flex flex-col border-r border-white/5">
+                    <h2 class="text-2xl md:text-3xl font-cinzel text-brand-gold mb-6 tracking-widest uppercase border-b border-white/10 pb-4">Sound Track</h2>
+                    
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="w-16 h-16 rounded overflow-hidden border border-brand-gold/30">
+                            <img src="sound.jpeg" alt="Hans Zimmer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest font-medium">Score By</p>
+                            <p class="text-xl text-white font-cinzel">Hans Zimmer</p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-5 flex-grow">
+                        <li class="flex justify-between items-center text-sm border-b border-white/5 pb-2 text-gray-300">
+                            <span>01. Dreaming Of The Crash</span> <span class="text-brand-gold text-xs font-mono">3:55</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm border-b border-white/5 pb-2 text-brand-gold">
+                            <span>02. Stay (Main Theme)</span> <span class="text-brand-gold/80 text-xs font-mono">6:52</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm border-b border-white/5 pb-2 text-gray-300">
+                            <span>03. Where We're Going</span> <span class="text-brand-gold text-xs font-mono">7:41</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm border-b border-white/5 pb-2 text-gray-300">
+                            <span>04. The Worm Hole</span> <span class="text-brand-gold text-xs font-mono">1:30</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm border-b border-white/5 pb-2 text-gray-300">
+                            <span>05. The First Step</span> <span class="text-brand-gold text-xs font-mono">1:47</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="mt-8 w-full py-4 border border-brand-gold text-brand-gold font-medium tracking-[0.2em] text-xs uppercase hover:bg-brand-gold hover:text-black transition-colors duration-300">
+                        Listen on Spotify
+                    </button>
+                </div>
+
+                <!-- Right: Visualizer Image & CSS Animation -->
+                <div class="w-full lg:w-7/12 relative p-8 md:p-12 flex flex-col justify-center">
+                    <img src="sound.jpeg" alt="Orchestra Background" class="absolute inset-0 w-full h-full object-cover opacity-10">
+                    <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 to-[#0a0a0a]"></div>
+                    
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <!-- Animated Visualizer Box -->
+                        <div class="bg-[#111] rounded-2xl border border-white/10 p-8 flex flex-col items-center justify-center min-h-[200px] mb-8 shadow-inner">
+                            <div class="flex items-end h-24 gap-1.5 md:gap-2 mb-6">
+                                <div class="sound-bar h-10" style="animation-delay: 0.1s"></div>
+                                <div class="sound-bar h-16" style="animation-delay: 0.5s"></div>
+                                <div class="sound-bar h-24" style="animation-delay: 0.2s"></div>
+                                <div class="sound-bar h-14" style="animation-delay: 0.8s"></div>
+                                <div class="sound-bar h-20" style="animation-delay: 0.4s"></div>
+                                <div class="sound-bar h-8"  style="animation-delay: 0.9s"></div>
+                                <div class="sound-bar h-24" style="animation-delay: 0.3s"></div>
+                                <div class="sound-bar h-16" style="animation-delay: 0.7s"></div>
+                                <div class="sound-bar h-12" style="animation-delay: 0.1s"></div>
+                                <div class="sound-bar h-20" style="animation-delay: 0.6s"></div>
+                                <div class="sound-bar h-10" style="animation-delay: 0.4s"></div>
+                            </div>
+                            <p class="text-brand-gold text-[10px] tracking-[0.3em] uppercase">Original Score</p>
+                            <p class="text-white text-xs tracking-widest mt-1 uppercase">Composed by Hans Zimmer</p>
+                        </div>
+                        
+                        <!-- Description -->
+                        <div class="bg-[#111] rounded-2xl border border-white/10 p-6 relative overflow-hidden">
+                            <p class="text-brand-gold text-[10px] tracking-[0.3em] uppercase mb-2">Sonic Atmosphere</p>
+                            <h3 class="text-xl md:text-2xl font-cinzel text-white mb-3">Sound Design & Music</h3>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed">
+                                Zimmer's score is notable for its prominent use of a 1926 Harrison & Harrison pipe organ, echoing the spiritual and grand themes of the film. The foundational music was written before Zimmer even saw the footage, based on a single page of text by Nolan about a father leaving his child.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. The Architect -->
+        <section class="snap-section bg-[#050505] px-6 md:px-12 lg:px-24">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1 reveal">
+                    <p class="text-brand-gold tracking-[0.4em] text-xs uppercase mb-4 font-light">The Architect</p>
+                    <h2 class="text-4xl md:text-6xl font-cinzel text-white mb-6 uppercase tracking-wider">Christopher Nolan</h2>
+                    <div class="h-[1px] w-16 bg-brand-gold mb-8"></div>
+                    <p class="text-gray-300 font-light leading-relaxed mb-8 text-sm md:text-base">
+                        A visionary director known for pushing the boundaries of cinematic storytelling, practical effects, and theoretical physics. Nolan crafted a masterpiece that balances the infinite scale of the cosmos with the intimate, timeless bond between a father and daughter.
+                    </p>
+                    
+                    <div class="inline-flex items-center gap-4 border border-brand-gold/30 bg-brand-gold/5 px-6 py-4 rounded-lg">
+                        <svg class="w-8 h-8 text-brand-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <div>
+                            <p class="text-brand-gold font-cinzel text-lg tracking-widest uppercase">8 Oscar Awards</p>
+                            <p class="text-gray-500 text-xs font-light tracking-wider uppercase mt-1">Visionary Direction</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image Composition -->
+                <div class="order-1 lg:order-2 relative h-[400px] md:h-[600px] w-full reveal delay-200 group">
+                    <img src="nolan.jpg" alt="Christopher Nolan" class="absolute inset-0 w-full h-full object-cover rounded-xl border border-white/5 z-10 grayscale group-hover:grayscale-0 transition-all duration-700">
+                    <div class="absolute -bottom-8 -left-8 w-2/3 h-2/3 z-20 hidden md:block rounded-xl overflow-hidden border-4 border-[#050505] shadow-2xl transform transition-transform duration-700 group-hover:translate-x-4 group-hover:-translate-y-4">
+                        <img src="nolan2.jpg" alt="Christopher Nolan Portrait" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Gallery -->
+        <section class="snap-section bg-[#020202] px-2 md:px-6 py-12">
+            <div class="w-full max-w-[1400px] mx-auto flex flex-col h-full justify-center">
+                <div class="text-center mb-8 reveal">
+                    <h2 class="text-3xl md:text-4xl font-cinzel text-white uppercase tracking-[0.2em]">Visuals of the Unknown</h2>
+                </div>
+                
+                <!-- Dynamic Grid. Hover effect: zoom out via scale-95 -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 h-[60vh] md:h-[70vh] reveal delay-200">
+                    
+                    <!-- Wide spanning item -->
+                    <div class="col-span-2 md:col-span-2 row-span-2 overflow-hidden rounded group bg-[#111]">
+                        <img src="landing page bg.jpg" alt="Space" class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-95 group-hover:opacity-80">
+                    </div>
+                    
+                    <!-- Standard items reusing assets as placeholders -->
+                    <div class="overflow-hidden rounded group bg-[#111]">
+                        <img src="140312162546-matthew-mcconaughey-march-2014.jpg" alt="Cooper" class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-95 group-hover:opacity-80">
+                    </div>
+                    <div class="overflow-hidden rounded group bg-[#111]">
+                        <img src="nolan2.jpg" alt="Behind the scenes" class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-95 group-hover:opacity-80 object-top">
+                    </div>
+                    
+                    <!-- Bottom row -->
+                    <div class="overflow-hidden rounded group bg-[#111]">
+                        <img src="DAvid gyasi.jpg" alt="Endurance" class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-95 group-hover:opacity-80">
+                    </div>
+                    <div class="col-span-2 md:col-span-1 overflow-hidden rounded group bg-[#111]">
+                        <img src="sound.jpeg" alt="Soundtrack" class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-95 group-hover:opacity-80">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Science Meets Cinema -->
+        <section class="snap-section bg-[#080808] px-6 md:px-12 lg:px-24">
+            <div class="max-w-6xl mx-auto w-full z-10">
+                <div class="text-center mb-12 lg:mb-20 reveal">
+                    <p class="text-brand-gold tracking-[0.3em] text-xs uppercase mb-2 font-light">Behind The Lens</p>
+                    <h2 class="text-3xl md:text-5xl font-cinzel text-white uppercase tracking-widest">Science Meets Cinema</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 lg:gap-y-12">
+                    <!-- Fact 1 -->
+                    <div class="reveal delay-100 flex items-start gap-5 bg-white/5 p-6 rounded-xl border border-white/5 hover:border-brand-gold/30 transition-colors">
+                        <div class="w-2 h-2 mt-2 rounded-full bg-brand-gold shadow-[0_0_8px_#D4AF37] flex-shrink-0"></div>
+                        <div>
+                            <h4 class="text-lg font-cinzel text-white mb-2 tracking-wide">500 Acres of Corn</h4>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed">Nolan preferred practical sets over CGI, planting 500 acres of actual corn for the Earth scenes. The crop was successful and later sold for a profit.</p>
+                        </div>
+                    </div>
+                    <!-- Fact 2 -->
+                    <div class="reveal delay-200 flex items-start gap-5 bg-white/5 p-6 rounded-xl border border-white/5 hover:border-brand-gold/30 transition-colors">
+                        <div class="w-2 h-2 mt-2 rounded-full bg-brand-gold shadow-[0_0_8px_#D4AF37] flex-shrink-0"></div>
+                        <div>
+                            <h4 class="text-lg font-cinzel text-white mb-2 tracking-wide">Temple Church Organ</h4>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed">To achieve a cosmic, respiratory resonance, the majestic soundtrack was recorded at Temple Church in London using their historic 1926 pipe organ.</p>
+                        </div>
+                    </div>
+                    <!-- Fact 3 -->
+                    <div class="reveal delay-300 flex items-start gap-5 bg-white/5 p-6 rounded-xl border border-white/5 hover:border-brand-gold/30 transition-colors">
+                        <div class="w-2 h-2 mt-2 rounded-full bg-brand-gold shadow-[0_0_8px_#D4AF37] flex-shrink-0"></div>
+                        <div>
+                            <h4 class="text-lg font-cinzel text-white mb-2 tracking-wide">Visualizing the 5th Dimension</h4>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed">The Tesseract wasn't a green screen. It was a massive physical set where actors were suspended on wires to simulate gravity anomalies.</p>
+                        </div>
+                    </div>
+                    <!-- Fact 4 -->
+                    <div class="reveal delay-400 flex items-start gap-5 bg-white/5 p-6 rounded-xl border border-white/5 hover:border-brand-gold/30 transition-colors">
+                        <div class="w-2 h-2 mt-2 rounded-full bg-brand-gold shadow-[0_0_8px_#D4AF37] flex-shrink-0"></div>
+                        <div>
+                            <h4 class="text-lg font-cinzel text-white mb-2 tracking-wide">TARS Practicality</h4>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed">TARS and CASE were practical puppets operated by actors on set. They weighed up to 200 pounds, built from real stainless steel to ground their presence.</p>
+                        </div>
+                    </div>
+                    <!-- Fact 5 -->
+                    <div class="reveal delay-500 flex items-start gap-5 bg-white/5 p-6 rounded-xl border border-white/5 hover:border-brand-gold/30 transition-colors">
+                        <div class="w-2 h-2 mt-2 rounded-full bg-brand-gold shadow-[0_0_8px_#D4AF37] flex-shrink-0"></div>
+                        <div>
+                            <h4 class="text-lg font-cinzel text-white mb-2 tracking-wide">Wormhole Real Geometry</h4>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed">Calculated by physicists, the wormhole was correctly depicted not as a 2D circle, but as a sphere—a three-dimensional hole in space reflecting the universe around it.</p>
+                        </div>
+                    </div>
+                    <!-- Fact 6 -->
+                    <div class="reveal delay-[600ms] flex items-start gap-5 bg-white/5 p-6 rounded-xl border border-white/5 hover:border-brand-gold/30 transition-colors">
+                        <div class="w-2 h-2 mt-2 rounded-full bg-brand-gold shadow-[0_0_8px_#D4AF37] flex-shrink-0"></div>
+                        <div>
+                            <h4 class="text-lg font-cinzel text-white mb-2 tracking-wide">Murph's Equations</h4>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed">The theoretical framework written on Murph's chalkboards was real physics, derived by Kip Thorne to theoretically solve the problem of quantum gravity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Closing the Loop -->
+        <section class="snap-section bg-[#000000] relative flex flex-col justify-center items-center text-center">
+            <!-- Cinematic Glow -->
+            <div class="absolute inset-0 bg-radial-gradient opacity-60"></div>
+            <div class="absolute bottom-[-30%] left-1/2 -translate-x-1/2 w-[90vw] h-[50vh] bg-brand-gold/10 blur-[120px] rounded-[100%] pointer-events-none mix-blend-screen"></div>
+            
+            <div class="z-10 px-4 reveal flex flex-col items-center">
+                <h1 class="text-6xl md:text-[8rem] lg:text-[11rem] font-cinzel font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-[#333] tracking-[0.1em] uppercase drop-shadow-lg mb-6 leading-none">
+                    Interstellar
+                </h1>
+                
+                <div class="h-[1px] w-48 bg-brand-gold/40 mb-10"></div>
+                
+                <p class="text-brand-gold text-lg md:text-2xl tracking-[0.5em] font-light uppercase opacity-90 drop-shadow-md">
+                    Thanks for watching
+                </p>
+                <p class="mt-8 text-xs text-gray-500 tracking-[0.2em] uppercase font-light">
+                    A Fan-Made Web Experience
+                </p>
+            </div>
+
+            <!-- Back to top button -->
+            <button onclick="document.getElementById('main-scroll-container').scrollTo({top: 0, behavior: 'smooth'})" class="absolute bottom-12 z-20 text-white/30 hover:text-white transition-colors duration-300 animate-pulse">
+                <svg class="w-8 h-8 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </button>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer to trigger fade-in animations on scroll
+            const observerOptions = {
+                root: document.getElementById('main-scroll-container'),
+                rootMargin: '0px',
+                threshold: 0.20 // Trigger when 20% of the element is in view
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add the in-view class to trigger CSS transition
+                        entry.target.classList.add('in-view');
+                        // Optional: Unobserve if you only want the animation to happen once
+                        // observer.unobserve(entry.target);
+                    } else {
+                        // Remove if you want it to fade out when scrolling away
+                        entry.target.classList.remove('in-view');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
